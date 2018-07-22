@@ -1,5 +1,5 @@
-const timeAgo = require("node-time-ago");
-const html = require("html-template-tag");
+const timeAgo = require('node-time-ago');
+const html = require('html-template-tag');
 
 module.exports = posts => html`<!DOCTYPE html>
   <html>
@@ -10,7 +10,8 @@ module.exports = posts => html`<!DOCTYPE html>
   <body>
     <div class="news-list">
       <header><img src="/logo.png"/>Wizard News</header>
-      ${posts.map(post => html`
+      ${posts.map(
+        post => html`
         <div class='news-item'>
           <p>
             <span class="news-position">${post.id}. ▲</span>
