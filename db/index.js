@@ -6,6 +6,7 @@ const { Client } = pg;
 const client = new Client(process.env.DATABASE_URL);
 client.connect();
 
+// Seed the table on each run for Heroku deployment
 const syncAndSeed = async () => {
   const createTables = ` DROP TABLE IF EXISTS users, posts, upvotes;
     CREATE TABLE users (
@@ -75,7 +76,6 @@ const syncAndSeed = async () => {
     await client.query(createUpvotes);
     await client.query(seedData);
     await client.query(seedUpvotes);
-    return 1;
   } catch (error) {
     throw error;
   }
