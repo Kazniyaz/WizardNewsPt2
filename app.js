@@ -3,10 +3,10 @@ const morgan = require('morgan');
 //const postBank = require('./postBank');
 const postList = require('./views/postList');
 const postDetails = require('./views/postDetails');
-const client = require('./db/index');
-
+const client = require('./db/index').client;
+const seed = require('./db/index');
 // Seed the data for our database (for Heroku deployment)
-client.syncAndSeed();
+seed.syncAndSeed();
 
 const app = express();
 
