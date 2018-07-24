@@ -3,8 +3,15 @@ const morgan = require('morgan');
 //const postBank = require('./postBank');
 const postList = require('./views/postList');
 const postDetails = require('./views/postDetails');
-const client = require('./db/index').client;
+//const client = require('./db/index').client;
 const seed = require('./db/index');
+
+//Issued with Heroku deployment, with client export, temp workaround
+const pg = require('pg');
+const { Client } = pg;
+const client = new Client(process.env.DATABASE_URL);
+client.connect();
+
 // Seed the data for our database (for Heroku deployment)
 seed.syncAndSeed();
 

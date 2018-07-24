@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "DATABASE_URL=postgres://localhost/wnews nodemon ./node_modules/mocha/bin/mocha",
-    "start": "DATABASE_URL=postgres://localhost/wnews node app.js"
+    "start": "DATABASE_URL=postgres://localhost/wnews nodemon app.js"
   },
   "keywords": [],
   "author": "",
