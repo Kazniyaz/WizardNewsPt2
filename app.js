@@ -5,6 +5,9 @@ const postList = require('./views/postList');
 const postDetails = require('./views/postDetails');
 const client = require('./db/index');
 
+// Seed the data for our database (for Heroku deployment)
+client.syncAndSeed();
+
 const app = express();
 
 app.use(morgan('dev'));
@@ -35,7 +38,7 @@ app.get('/posts/:id', async (req, res, next) => {
   }
 });
 
-const PORT = 1337;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
